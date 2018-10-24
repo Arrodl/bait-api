@@ -44,4 +44,10 @@ class Schedule (models.Model):
     def __str__(self):
         return "%s - %s" % (self.start, self.end)
 
+class Announcements (models.Model):
+    
+
+    def __str__(self):
+        return ""
+
 

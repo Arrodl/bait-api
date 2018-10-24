@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.resources import DayOfWeekResource
+from api.resources import DayOfWeekResource, CommonAreaDayResource, CommonAreaResource, ScheduleResource
 
 day_of_week_resource = DayOfWeekResource()
+common_area_resource = CommonAreaResource()
+common_area_day_resource = CommonAreaDayResource()
+schedule_resource = ScheduleResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include(day_of_week_resource.urls))
+    path('api/v1/', include(day_of_week_resource.urls)),
+    path('api/v1/', include(common_area_resource.urls)),
+    path('api/v1/', include(common_area_day_resource.urls)),
+    path('api/v1/', include(schedule_resource.urls))
 ]
