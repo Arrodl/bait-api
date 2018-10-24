@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from api.resources import DayOfWeekResource
+
+day_of_week_resource = DayOfWeekResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/', include(day_of_week_resource.urls))
 ]
