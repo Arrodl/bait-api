@@ -53,3 +53,34 @@ class Announcement (models.Model):
 
     def __str__(self):
         return ""
+
+class Motive (models.Model):
+    name = models.CharField(max_length = 100)
+
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return self.name
+
+class Place (models.Model):
+    name = models.CharField(max_length = 100)
+    
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return self.name
+
+class Event (models.Model):
+    name = models.CharField(max_length = 100)
+    date = models.DateTimeField(auto_now_add = True)
+    duration = models.IntegerField(default = 1)
+    qr = models.TextField()
+    motive = models.ForeignKey(Motive, on_delete = models.CASCADE)
+    place = models.ForeignKey(Place, on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return ""
+
+
