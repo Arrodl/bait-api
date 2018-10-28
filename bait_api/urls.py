@@ -23,6 +23,8 @@ common_area_day_resource = CommonAreaDayResource()
 schedule_resource = ScheduleResource()
 
 urlpatterns = [
+    path('jet/', include('jet.urls', 'jet')),
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(day_of_week_resource.urls)),
     path('api/v1/', include(common_area_resource.urls)),
