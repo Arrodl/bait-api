@@ -25,7 +25,8 @@ class CommonAreaDayResource(ModelResource):
         resource_name = "common_area_day"
         excludes = ['created_at', 'updated_at']
         list_allowed_methods = ['get', 'post']
-        detail_allowed_methods = ['get', 'post', 'put', 'delete']authorization = Authorization()
+        detail_allowed_methods = ['get', 'post', 'put', 'delete'],
+        authorization = Authorization()
         filtering = {
             'day_of_week': ALL_WITH_RELATIONS,
             'schedule': ALL_WITH_RELATIONS,
