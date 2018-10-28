@@ -1,4 +1,6 @@
-from tastypie.resources import ModelResource
+from tastypie.authorization import Authorization
+from tastypie import fields
+from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from api.models import DayOfWeek, CommonArea, CommonAreaDay, Schedule
 
 class DayOfWeekResource(ModelResource):
@@ -23,7 +25,12 @@ class CommonAreaDayResource(ModelResource):
         resource_name = "common_area_day"
         excludes = ['created_at', 'updated_at']
         list_allowed_methods = ['get', 'post']
-        detail_allowed_methods = ['get', 'post', 'put', 'delete']
+        detail_allowed_methods = ['get', 'post', 'put', 'delete']authorization = Authorization()
+        filtering = {
+            'day_of_week': ALL_WITH_RELATIONS,
+            'schedule': ALL_WITH_RELATIONS,
+            'pub_date': ['exact', 'lt', 'lte', 'gte', 'gt'],
+        }
 
 class ScheduleResource(ModelResource):
     class Meta:
