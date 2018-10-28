@@ -81,6 +81,6 @@ class Event (models.Model):
     place = models.ForeignKey(Place, on_delete = models.CASCADE)
     
     def __str__(self):
-        return ""
+        return self.name
 
 
