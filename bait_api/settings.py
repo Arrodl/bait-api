@@ -79,10 +79,6 @@ WSGI_APPLICATION = 'bait_api.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
         'ATOMIC_REQUESTS': False,
         'AUTOCOMMIT': True,
@@ -97,14 +93,6 @@ DATABASES = {
         'TIME_ZONE': None,
         'USER': 'bait'
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'myproject',
-    #     'USER': 'myprojectuser',
-    #     'PASSWORD': 'password',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
 }
 
 
