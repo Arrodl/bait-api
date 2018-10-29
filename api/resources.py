@@ -2,6 +2,15 @@ from tastypie.authorization import Authorization
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from api.models import DayOfWeek, CommonArea, CommonAreaDay, Schedule
+from .models import Announcement
+
+class AnnouncementResource(ModelResource): 
+    class Meta:
+        queryset = Announcement.objects.all()
+        resource_name = 'announcement'
+        excludes = ['created_at', 'updated_at']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'post', 'put', 'delete']
 
 class DayOfWeekResource(ModelResource):
     class Meta:
